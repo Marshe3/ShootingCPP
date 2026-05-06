@@ -41,5 +41,6 @@ public:
 	bool isReady = false;
 	
 	// 함수 동작 확인
-	// ibt32 Add(int32 )
+	int32 Add(int32 a, int32 b);
+	
 };
