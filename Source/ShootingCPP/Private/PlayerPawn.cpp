@@ -2,6 +2,8 @@
 
 
 #include "PlayerPawn.h"
+
+#include "EnhancedInputSubsystems.h"
 #include "Components/BoxComponent.h"
 
 // Sets default values
@@ -33,6 +35,18 @@ void APlayerPawn::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	APlayerController* pc = GetWorld()->GetFirstPlayerController();
+	
+	if (pc != nullptr)
+	{
+		// 플레이어 컨트롤러부터 입력 서브시스템 정보 가져오기
+		UEnhancedInputLocalPlayerSubsystem* subsys =
+			ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(pc->GetLocalPlayer());
+		if (subsys != nullptr)
+		{
+			subsys->AddMappingContext(imcPlayerInput, 0);
+		}
+	}
 }
 
 // Called every frame
