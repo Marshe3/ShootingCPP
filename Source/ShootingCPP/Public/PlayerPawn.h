@@ -45,6 +45,11 @@ public:
 	UPROPERTY(EditAnywhere)
 	class UInputAction* iaVertical;
 	
+	// 이동 속도 변수
+	UPROPERTY(EditAnywhere)
+	float moveSpeed = 500.f;
+	
+	
 private:
 	// 상요자 키 입력값을 받을 변수
 	float h;
