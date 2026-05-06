@@ -24,6 +24,26 @@ void ACodingTestActor::BeginPlay()
 	UE_LOG(LogTemp, Warning, TEXT("%d"), isReady);
 	UE_LOG(LogTemp, Warning, TEXT("Add 결과: %d"), AddCustom(number3, number4));
 	
+	// 조건문
+	if (number3 >= 50)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("number3은 50보다 큽니다."));
+	}
+	else if (number3 == 50)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("number3은 50 입니다."));		
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("number3은 50보다 작습니다"))	
+	}
+	
+	
+	// 반복문
+	for (int32 i = 1 ; i <=5 ; i++)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("반복 횟수 : %d"), i);
+	}
 }
 
 
