@@ -7,6 +7,8 @@ public class ShootingCPP : ModuleRules
 	public ShootingCPP(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+		bValidateInternalApi = false;
+		bValidateExperimentalApi = false;
 	
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput" });
 

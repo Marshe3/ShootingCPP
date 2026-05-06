@@ -20,6 +20,7 @@ void AAccessTestActor::BeginPlay()
 	
 	ACodingTestActor* testActer = NewObject<ACodingTestActor>(this);
 	testActer -> number1 = -100;
+	
 	UE_LOG(LogTemp, Warning, TEXT("number1: %i"), testActer -> number1);
 }
 

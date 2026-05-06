@@ -7,7 +7,7 @@
 #include "CodingTestActor.generated.h"
 
 UCLASS()
-class ACodingTestActor : public AActor
+class SHOOTINGCPP_API ACodingTestActor : public AActor
 {
 	GENERATED_BODY()
 
@@ -22,28 +22,25 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-//private:
-	// 기본 자료형 변수
-	UPROPERTY(EditAnywhere) // 블루프린트 설정창 OK / 레벨에 배치된 액터(인스턴스) OK
+
+	UPROPERTY(EditAnywhere)
 	int32 number1 = 10;
-	
-// public:
-	
-	UPROPERTY(VisibleAnywhere) // 값을 볼수있지만 수정 불가 -> 코드에서만 수정 가능하고 에디터에서는 참고만
+
+	UPROPERTY(VisibleAnywhere)
 	float number2 = 3.14f;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite) // 블루프린트 이벤트그래프에서 읽기쓰기 모두 가능
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 number3 = 30;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly) // 블루프린트 이벤트그래프에서 읽기 전용
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 number4 = 40;
-	UPROPERTY(EditInstanceOnly) // 레벨에 배치된 엑터 인스턴스에서만 수정 가능 (블루 프린트X)
-	FString name = TEXT("홍길동");
-	
-	UPROPERTY(EditDefaultsOnly) // 블루프린트 설정에서만 수정가능(인스턴스X)
+
+	UPROPERTY(EditInstanceOnly)
+	FString name = TEXT("HongGilDong");
+
+	UPROPERTY(EditDefaultsOnly)
 	bool isReady = false;
-	
-	// 함수 동작 확인
-	UFUNCTION(BlueprintCallable)  // 블루프린트에서 사용 가능하도록 하는 매크로
+
+	UFUNCTION(BlueprintCallable)
 	int32 AddCustom(int32 a, int32 b);
-	
 };
