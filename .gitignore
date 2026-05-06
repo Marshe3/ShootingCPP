@@ -1,0 +1,37 @@
+# Unreal Engine generated files
+Binaries/
+Build/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# IDE and editor state
+.vs/
+.idea/
+*.sln
+*.suo
+*.VC.db
+*.VC.opendb
+*.opensdf
+*.sdf
+
+# Compiled artifacts
+*.dll
+*.pdb
+*.exe
+*.exp
+*.lib
+*.obj
+*.pch
+*.so
+*.dylib
+*.a
+
+# Platform/system files
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Old misnamed ignore file
+.gitignore.txt
