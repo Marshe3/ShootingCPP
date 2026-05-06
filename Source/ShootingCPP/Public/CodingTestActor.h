@@ -41,6 +41,7 @@ public:
 	bool isReady = false;
 	
 	// 함수 동작 확인
-	int32 Add(int32 a, int32 b);
+	UFUNCTION(BlueprintCallable)  // 블루프린트에서 사용 가능하도록 하는 매크로
+	int32 AddCustom(int32 a, int32 b);
 	
 };
