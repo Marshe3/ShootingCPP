@@ -31,4 +31,15 @@ public:
 	// 스태틱 메시 컴포넌트
 	UPROPERTY(EditAnywhere)
 	class UStaticMeshComponent* meshComp;
+	
+	// 이동 속도
+	UPROPERTY(EditAnywhere)
+	float moveSpeed = 600.f;
+	
+	// 플레이어 추적 확률 (0~100)
+	UPROPERTY(EditAnywhere)
+	int32 traceRate = 50;
+	
+private:
+	FVector dir;
 };
