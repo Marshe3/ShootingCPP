@@ -76,9 +76,10 @@ void APlayerPawn::Tick(float DeltaTime)
 	FVector dir = FVector(0,h,v);
 	dir.Normalize(); // 방향 벡터 길이가 1이 되도록 정규화(1로 제한)
 	
-	// 현재 위치 + 방향 * 속력 * 시간
-	FVector newLocation = GetActorLocation() + dir * moveSpeed * DeltaTime;
-	SetActorLocation(newLocation);
+	// Y축(좌우) / z축(상하) 분리하여 이동될 수 있도록 수정
+	FVector vector = dir * moveSpeed * DeltaTime;
+	SetActorLocation(GetActorLocation() + FVector(0,vector.Y, 0), true);
+	SetActorLocation(GetActorLocation() + FVector(0,0, vector.Z), true);
 }
 
 // 사용자가 키를 누를때 실행되며 h,v 변수를 재할당하는 함수
