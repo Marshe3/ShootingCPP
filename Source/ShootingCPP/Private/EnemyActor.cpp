@@ -60,6 +60,26 @@ void AEnemyActor::BeginPlay()
 		// 직진
 		dir = GetActorForwardVector();
 	}
+	
+	// OnComponentBeginOverlap 델리게이트에 OnBulletOverlap 함수를 등록
+	// "Overlap" 발생하면 OnBulletOverlap() 호출해 라고 엔진에 등록 설정
+	boxComp->OnComponentBeginOverlap.AddDynamic(this,&AEnemyActor::OnEnemyOverlap);
+	
+}
+
+void AEnemyActor::OnEnemyOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor
+	, UPrimitiveComponent* OtherComp,int32 OtherBodyIndex
+	, bool bFromSweep, const FHitResult& SweepResult)
+{
+	// 충돌한 상대 액터를 APlayerPawn 클래스 변환
+	APlayerPawn*player = Cast<APlayerPawn>(OtherActor);
+	if (player != nullptr)
+	{
+		// 충돌된 플레이어 제거
+		OtherActor->Destroy();
+	}
+	// 적 자신도 제거
+	Destroy();
 }
 
 // Called every frame
